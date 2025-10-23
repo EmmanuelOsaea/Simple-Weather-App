@@ -4,8 +4,9 @@
     android:padding="20dp"
     android:background="#E3F2FD"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:background="#E3F2FD">
+   
     <EditText
         android:id="@+id/cityInput"
         android:hint="Enter city name"
