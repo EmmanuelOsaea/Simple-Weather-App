@@ -15,7 +15,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val apiKey = "8cd233e9a042b1d1aa5bc6fc65347c49" // Replace with your OpenWeatherMap API key
-
+    private val city = "Lagos"
+    private val url = "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey&units=metric" 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
