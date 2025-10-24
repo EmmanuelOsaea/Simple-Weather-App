@@ -1,6 +1,8 @@
 package com.example.weatherapp
 
 import android.os.Bundle
+import android.widget.*
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -32,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun fetchWeather(city: String, tvResult: TextView, progressBar: ProgressBar)  ) {
+    private fun fetchWeather(city: String, tvResult: TextView, progressBar: ProgressBar, swipeRefresh: SwipeRefreshLayout)  ) {
           lifecycleScope.launch {
             val client = OkHttpClient()
             val response = withContext(Dispatchers.IO) {
@@ -88,7 +90,8 @@ class MainActivity : AppCompatActivity() {
 
                     runOnUiThread {
                         progressBar.visibility = ProgressBar.GONE
-                        tvResult.text = resultText
+                        swipeRefresh.isRefreshing = false
+                         tvResult.text = resultText
                     }
                 }
             }
