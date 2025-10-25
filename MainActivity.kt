@@ -45,6 +45,11 @@ if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
     vibrator.vibrate(50)
 }
     
+// Sound feedback (soft click)
+val sound = android.media.ToneGenerator(android.media.AudioManager.STREAM_NOTIFICATION, 80)
+sound.startTone(android.media.ToneGenerator.TONE_PROP_ACK, 150)
+
+
     
     val city = etCity.text.toString().trim()
     if (city.isNotEmpty()) {
@@ -145,5 +150,58 @@ if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                 }
             }
         })
+    }
+}
+
+
+// Assume weatherCondition holds the main weather type like "Rain", "Clear", "Clouds", etc.
+val weatherCondition = weatherResponse.weather[0].main 
+
+// Initialize vibration & sound
+val vibrator = getSystemService(VIBRATOR_SERVICE) as android.os.Vibrator
+val toneGen = android.media.ToneGenerator(android.media.AudioManager.STREAM_NOTIFICATION, 100)
+
+when (weatherCondition) {
+    "Thunderstorm" -> {
+        // Strong vibration + long alert tone
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            vibrator.vibrate(android.os.VibrationEffect.createOneShot(600, android.os.VibrationEffect.DEFAULT_AMPLITUDE))
+        } else {
+            @Suppress("DEPRECATION")
+            vibrator.vibrate(600)
+        }
+        toneGen.startTone(android.media.ToneGenerator.TONE_CDMA_ALERT_CALL_GUARD, 400)
+    }
+
+    "Rain" -> {
+        // Short vibration + soft tone
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            vibrator.vibrate(android.os.VibrationEffect.createOneShot(200, android.os.VibrationEffect.DEFAULT_AMPLITUDE))
+        } else {
+            @Suppress("DEPRECATION")
+            vibrator.vibrate(200)
+        }
+        toneGen.startTone(android.media.ToneGenerator.TONE_PROP_BEEP, 200)
+    }
+
+    "Clear" -> {
+        // Gentle click + cheerful tone
+        toneGen.startTone(android.media.ToneGenerator.TONE_PROP_ACK, 150)
+    }
+
+    "Clouds" -> {
+        // Mild buzz + neutral tone
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            vibrator.vibrate(android.os.VibrationEffect.createOneShot(100, android.os.VibrationEffect.DEFAULT_AMPLITUDE))
+        } else {
+            @Suppress("DEPRECATION")
+            vibrator.vibrate(100)
+        }
+        toneGen.startTone(android.media.ToneGenerator.TONE_PROP_BEEP2, 200)
+    }
+
+    else -> {
+        // Default gentle click
+        toneGen.startTone(android.media.ToneGenerator.TONE_PROP_ACK, 100)
     }
 }
