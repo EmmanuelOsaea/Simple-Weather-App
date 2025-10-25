@@ -35,7 +35,28 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+btnSearch.setOnClickListener {
+    val city = etCity.text.toString().trim()
+    if (city.isNotEmpty()) {
+        val fadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out)
 
+        // Fade out old data
+        tvResult.startAnimation(fadeOut)
+        fadeOut.setAnimationListener(object : android.view.animation.Animation.AnimationListener {
+            override fun onAnimationStart(animation: android.view.animation.Animation) {}
+            override fun onAnimationRepeat(animation: android.view.animation.Animation) {}
+            override fun onAnimationEnd(animation: android.view.animation.Animation) {
+                // After fade-out, clear text and fetch new data
+                tvResult.text = ""
+                progressBar.visibility = ProgressBar.VISIBLE
+                fetchWeather(city, tvResult, progressBar, swipeRefresh, fadeIn)
+            }
+        })
+    } else {
+        Toast.makeText(this, "Please enter a city name", Toast.LENGTH_SHORT).show()
+    }
+}
+    
 // Swipe-to-refresh listener
         swipeRefresh.setOnRefreshListener {
             val city = etCity.text.toString().trim()
