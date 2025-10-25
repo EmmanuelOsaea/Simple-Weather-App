@@ -230,4 +230,16 @@ updateBackground(weatherCondition)
 
 updateBackground(weatherCondition)
 
+private fun updateBackground(condition: String) {
+    val layout = findViewById<View>(R.id.mainLayout)
+    val backgroundRes = when {
+        condition.contains("rain", true) -> R.drawable.bg_rainy
+        condition.contains("cloud", true) -> R.drawable.bg_cloudy
+        condition.contains("sun", true) || condition.contains("clear", true) -> R.drawable.bg_sunny
+        else -> R.drawable.bg_default
+    }
+    layout.setBackgroundResource(backgroundRes)
+}
 
+binding.textViewWeather.text = "Condition: $condition"
+updateBackground(condition)
