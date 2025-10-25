@@ -220,3 +220,10 @@ private fun updateBackground(weatherCondition: String) {
 }
 
 updateBackground(weatherCondition)
+
+
+   // Apply fade animation
+    val fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in)
+    imageView.setImageResource(backgroundRes)
+    imageView.startAnimation(fadeIn)
+}
