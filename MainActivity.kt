@@ -227,3 +227,5 @@ updateBackground(weatherCondition)
     imageView.setImageResource(backgroundRes)
     imageView.startAnimation(fadeIn)
 }
+
+updateBackground(weatherCondition)
