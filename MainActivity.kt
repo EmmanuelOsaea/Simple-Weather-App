@@ -1,6 +1,7 @@
 package com.example.weatherapp
 
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import android.widget.Toast
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         swipeRefresh.setOnRefreshListener {
             val city = etCity.text.toString().trim()
             if (city.isNotEmpty()) {
-                fetchWeather(city, tvResult, progressBar, swipeRefresh)
+                fetchWeather(city, tvResult, progressBar, swipeRefresh, fadeIn)
             } else {
                 swipeRefresh.isRefreshing = false
                 Toast.makeText(this, "Enter a city name to refresh", Toast.LENGTH_SHORT).show()
@@ -50,7 +51,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-   private fun fetchWeather(city: String, tvResult: TextView, progressBar: ProgressBar, swipeRefresh: SwipeRefreshLayout)  ) {
+   private fun fetchWeather(city: String, tvResult: TextView, progressBar: ProgressBar, swipeRefresh: SwipeRefreshLayout, fadeIn: android.view.animation.Animation ) {
           lifecycleScope.launch {
             val client = OkHttpClient()
             val response = withContext(Dispatchers.IO) {
@@ -108,6 +109,7 @@ class MainActivity : AppCompatActivity() {
                         progressBar.visibility = ProgressBar.GONE
                         swipeRefresh.isRefreshing = false
                          tvResult.text = resultText
+                         tvResult.startAnimation(fadeIn)
                     }
                 }
             }
