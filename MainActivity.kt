@@ -36,6 +36,16 @@ class MainActivity : AppCompatActivity() {
     }
 
 btnSearch.setOnClickListener {
+   // Haptic feedback
+val vibrator = getSystemService(VIBRATOR_SERVICE) as android.os.Vibrator
+if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+    vibrator.vibrate(android.os.VibrationEffect.createOneShot(50, android.os.VibrationEffect.DEFAULT_AMPLITUDE))
+} else {
+    @Suppress("DEPRECATION")
+    vibrator.vibrate(50)
+}
+    
+    
     val city = etCity.text.toString().trim()
     if (city.isNotEmpty()) {
         val fadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out)
