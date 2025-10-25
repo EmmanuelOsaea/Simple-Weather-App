@@ -16,6 +16,10 @@ import com.example.weatherapp.data.WeatherDatabase
 import com.example.weatherapp.data.WeatherApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import androidx.compose.animation.*
+import androidx.compose.animation.core.tween
+
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
