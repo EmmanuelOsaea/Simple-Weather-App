@@ -205,3 +205,18 @@ when (weatherCondition) {
         toneGen.startTone(android.media.ToneGenerator.TONE_PROP_ACK, 100)
     }
 }
+
+
+private fun updateBackground(weatherCondition: String) {
+    val imageView = findViewById<ImageView>(R.id.bgImage)
+    val backgroundRes = when {
+        weatherCondition.contains("rain", ignoreCase = true) -> R.drawable.rainy_bg
+        weatherCondition.contains("cloud", ignoreCase = true) -> R.drawable.cloudy_bg
+        weatherCondition.contains("snow", ignoreCase = true) -> R.drawable.snow_bg
+        weatherCondition.contains("sun", ignoreCase = true) || weatherCondition.contains("clear", ignoreCase = true) -> R.drawable.sunny_bg
+        else -> R.drawable.default_bg
+    }
+    imageView.setImageResource(backgroundRes)
+}
+
+updateBackground(weatherCondition)
