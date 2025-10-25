@@ -34,7 +34,23 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun fetchWeather(city: String, tvResult: TextView, progressBar: ProgressBar, swipeRefresh: SwipeRefreshLayout)  ) {
+
+// Swipe-to-refresh listener
+        swipeRefresh.setOnRefreshListener {
+            val city = etCity.text.toString().trim()
+            if (city.isNotEmpty()) {
+                fetchWeather(city, tvResult, progressBar, swipeRefresh)
+            } else {
+                swipeRefresh.isRefreshing = false
+                Toast.makeText(this, "Enter a city name to refresh", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+
+
+
+   private fun fetchWeather(city: String, tvResult: TextView, progressBar: ProgressBar, swipeRefresh: SwipeRefreshLayout)  ) {
           lifecycleScope.launch {
             val client = OkHttpClient()
             val response = withContext(Dispatchers.IO) {
