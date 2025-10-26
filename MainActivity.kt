@@ -264,3 +264,9 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+setContent {
+    WeatherAppTheme {
+        WeatherScreen(viewModel)
+    }
+}
