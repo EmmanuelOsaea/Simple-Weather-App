@@ -77,12 +77,19 @@ fun WeatherScreen() {
         }
 
         Spacer(modifier = Modifier.height(20.dp))
-
-        weather?.let {
+      AnimatedVisibility(
+    visible = weather != null,
+    enter = fadeIn(animationSpec = tween(durationMillis = 800))
+) {
+    weather?.let {
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Text("City: ${it.city}", fontWeight = FontWeight.Bold)
             Text("Temperature: ${it.temperature}°C")
             Text("Condition: ${it.description}")
             Text("Humidity: ${it.humidity}%")
         }
+    }
+}
+        
     }
 }
