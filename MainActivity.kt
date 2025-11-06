@@ -270,3 +270,12 @@ setContent {
         WeatherScreen(viewModel)
     }
 }
+
+when (weatherCondition) {
+    "Clear" -> imageView.setImageResource(R.drawable.sunny)
+    "Clouds" -> imageView.setImageResource(R.drawable.cloudy)
+    "Rain" -> imageView.setImageResource(R.drawable.rainy)
+    "Thunderstorm" -> imageView.setImageResource(R.drawable.stormy)
+    "Snow" -> imageView.setImageResource(R.drawable.snowy)
+    else -> imageView.setImageResource(R.drawable.default_weather)
+}
