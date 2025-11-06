@@ -83,7 +83,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_centerInParent="true"
-        android:src=" " />
+        android:src="birds-5552482_1280.jpg" />
 
     <TextView
         android:id="@+id/weatherText"
@@ -101,7 +101,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_centerInParent="true"
-        android:src=" " />
+        android:src="sky-3499982_1280.jpg" />
 
     <TextView
         android:id="@+id/weatherText"
@@ -117,7 +117,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_centerInParent="true"
-        android:src=" " />
+        android:src="wood-4449746_1280.jpg" />
 
     <TextView
         android:id="@+id/weatherText"
@@ -133,7 +133,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_centerInParent="true"
-        android:src=" " />
+        android:src="wood-4449746_1280.jpg" />
 
     <TextView
         android:id="@+id/weatherText"
@@ -149,7 +149,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_centerInParent="true"
-        android:src=" " />
+        android:src="snow-496875_1280.jpg" />
 
     <TextView
         android:id="@+id/weatherText"
@@ -158,12 +158,7 @@
         android:layout_centerHorizontal="true"
         android:text="Snowy"
         android:textSize="20sp"
-        android:textColor="#000"  
-          
-        
-           
-        
-        />
+        android:textColor="#000" />
 
 
 
