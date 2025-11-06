@@ -8,17 +8,14 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:src="@drawable/default_bg" />
-
-
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:gravity="center"
     android:padding="20dp"
     android:background="#E3F2FD"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E3F2FD">
+    android:background="#E3F2FD" />
    
     <EditText
         android:id="@+id/cityInput"
@@ -56,3 +53,236 @@
 </LinearLayout>
 
 </FrameLayout>
+
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/weather_bg">
+
+    <ImageView
+        android:id="@+id/weatherIcon"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerInParent="true"
+        android:src="fair-weather-clouds-2117442_1280.jpg" />
+
+    <TextView
+        android:id="@+id/weatherText"
+        android:layout_below="@id/weatherIcon"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:text="Sunny"
+        android:textSize="20sp"
+        android:textColor="#000" 
+        
+        
+        <ImageView
+        android:id="@+id/weatherIcon"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerInParent="true"
+        android:src=" " />
+
+    <TextView
+        android:id="@+id/weatherText"
+        android:layout_below="@id/weatherIcon"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:text="Cloudy"
+        android:textSize="20sp"
+        android:textColor="#000" 
+        
+        
+               
+       <ImageView
+        android:id="@+id/weatherIcon"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerInParent="true"
+        android:src=" " />
+
+    <TextView
+        android:id="@+id/weatherText"
+        android:layout_below="@id/weatherIcon"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:text="Rainy"
+        android:textSize="20sp"
+        android:textColor="#000"  
+        
+        <ImageView
+        android:id="@+id/weatherIcon"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerInParent="true"
+        android:src=" " />
+
+    <TextView
+        android:id="@+id/weatherText"
+        android:layout_below="@id/weatherIcon"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:text="Rainy"
+        android:textSize="20sp"
+        android:textColor="#000"  
+        
+        <ImageView
+        android:id="@+id/weatherIcon"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerInParent="true"
+        android:src=" " />
+
+    <TextView
+        android:id="@+id/weatherText"
+        android:layout_below="@id/weatherIcon"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:text="Stormy"
+        android:textSize="20sp"
+        android:textColor="#000"  
+        
+     <ImageView
+        android:id="@+id/weatherIcon"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerInParent="true"
+        android:src=" " />
+
+    <TextView
+        android:id="@+id/weatherText"
+        android:layout_below="@id/weatherIcon"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:text="Snowy"
+        android:textSize="20sp"
+        android:textColor="#000"  
+          
+        
+           
+        
+        />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>
