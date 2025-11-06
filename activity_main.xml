@@ -1,171 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Background image (dynamic) -->
     <ImageView
         android:id="@+id/bgImage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
+        android:contentDescription="@string/bg_desc"
         android:src="@drawable/default_bg" />
-   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="20dp"
-    android:background="#E3F2FD"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#E3F2FD" />
-   
-    <EditText
-        android:id="@+id/cityInput"
-        android:hint="Enter city name"
-        android:padding="10dp"
-        android:layout_marginBottom="10dp"
+
+    <!-- Dark overlay for text readability -->
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        android:background="#80000000" />
 
-    <Button
-        android:id="@+id/checkWeatherButton"
-        android:text="Check Weather"
-        android:backgroundTint="#2196F3"
-        android:layout_marginBottom="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    !-- Loading indicator -->
-           <ProgressBar
-        android:id="@+id/progressBar"
-        android:visibility="gone"
-        android:layout_marginTop="16dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-         
-    <TextView
-        android:id="@+id/resultText"
-        android:text="Weather info will appear here"
-        android:textSize="18sp"
-        android:gravity="center"
-        android:textColor="#000000"
+    <!-- Content -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:padding="20dp">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🌤️ Weather Tracker"
+                android:textSize="22sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/cityInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter city name"
+                android:inputType="text"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/teal_200" />
+
+            <Button
+                android:id="@+id/checkWeatherButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Check Weather"
+                android:layout_marginTop="12dp" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginTop="12dp" />
+
+            <ImageView
+                android:id="@+id/weatherIcon"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="20dp"
+                android:contentDescription="@string/weather_icon_desc"
+                android:src="@drawable/sunny_icon" />
+
+            <TextView
+                android:id="@+id/resultText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Weather info will appear here"
+                android:textSize="18sp"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>
-
-
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/weather_bg">
-
-    <ImageView
-        android:id="@+id/weatherIcon"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_centerInParent="true"
-        android:src="fair-weather-clouds-2117442_1280.jpg" />
-
-    <TextView
-        android:id="@+id/weatherText"
-        android:layout_below="@id/weatherIcon"
-        android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true"
-        android:text="Sunny"
-        android:textSize="20sp"
-        android:textColor="#000" 
-        
-        
-        <ImageView
-        android:id="@+id/weatherIcon"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_centerInParent="true"
-        android:src="birds-5552482_1280.jpg" />
-
-    <TextView
-        android:id="@+id/weatherText"
-        android:layout_below="@id/weatherIcon"
-        android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true"
-        android:text="Cloudy"
-        android:textSize="20sp"
-        android:textColor="#000" 
-        
-        
-               
-       <ImageView
-        android:id="@+id/weatherIcon"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_centerInParent="true"
-        android:src="sky-3499982_1280.jpg" />
-
-    <TextView
-        android:id="@+id/weatherText"
-        android:layout_below="@id/weatherIcon"
-        android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true"
-        android:text="Rainy"
-        android:textSize="20sp"
-        android:textColor="#000"  
-        
-        <ImageView
-        android:id="@+id/weatherIcon"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_centerInParent="true"
-        android:src="wood-4449746_1280.jpg" />
-
-    <TextView
-        android:id="@+id/weatherText"
-        android:layout_below="@id/weatherIcon"
-        android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true"
-        android:text="Rainy"
-        android:textSize="20sp"
-        android:textColor="#000"  
-        
-        <ImageView
-        android:id="@+id/weatherIcon"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_centerInParent="true"
-        android:src="wood-4449746_1280.jpg" />
-
-    <TextView
-        android:id="@+id/weatherText"
-        android:layout_below="@id/weatherIcon"
-        android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true"
-        android:text="Stormy"
-        android:textSize="20sp"
-        android:textColor="#000"  
-        
-     <ImageView
-        android:id="@+id/weatherIcon"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_centerInParent="true"
-        android:src="snow-496875_1280.jpg" />
-
-    <TextView
-        android:id="@+id/weatherText"
-        android:layout_below="@id/weatherIcon"
-        android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true"
-        android:text="Snowy"
-        android:textSize="20sp"
-        android:textColor="#000" />
-
-
-
-
-
-
-
 
 
 
