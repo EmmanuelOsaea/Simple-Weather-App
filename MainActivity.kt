@@ -62,3 +62,29 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
+
+private fun updateBackground(condition: String) {
+    val bgImage = findViewById<ImageView>(R.id.bgImage)
+
+    when {
+        condition.contains("rain", ignoreCase = true) -> {
+            bgImage.setImageResource(R.drawable.sky_3499982_1280) // rainy sky
+        }
+        condition.contains("snow", ignoreCase = true) -> {
+            bgImage.setImageResource(R.drawable.snow_496875_1280)
+        }
+        condition.contains("cloud", ignoreCase = true) -> {
+            bgImage.setImageResource(R.drawable.fair_weather_clouds_2117442_1280)
+        }
+        condition.contains("sun", ignoreCase = true) || condition.contains("clear", ignoreCase = true) -> {
+            bgImage.setImageResource(R.drawable.birds_5552482_1280)
+        }
+        condition.contains("wind", ignoreCase = true) -> {
+            bgImage.setImageResource(R.drawable.wood_4449746_1280)
+        }
+        else -> {
+            bgImage.setImageResource(R.drawable.autumn_5649620_1280) // default
+        }
+    }
+}
