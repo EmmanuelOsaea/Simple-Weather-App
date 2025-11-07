@@ -52,3 +52,5 @@ classpath 'com.google.gms:google-services:4.4.0'  // or latest
 
 apply plugin: 'com.google.gms.google-services'
 implementation 'com.google.firebase:firebase-analytics-ktx:21.3.0' // example
+
+buildConfigField "String", "OPEN_WEATHER_API_KEY", OPEN_WEATHER_API_KEY
