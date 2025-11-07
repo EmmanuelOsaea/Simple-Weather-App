@@ -88,3 +88,6 @@ private fun updateBackground(condition: String) {
         }
     }
 }
+
+
+updateBackground(weatherCondition)
