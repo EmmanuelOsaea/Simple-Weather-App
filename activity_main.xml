@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:contentDescription="@string/bg_desc"
-        android:src="@drawable/autumn-5649620_1280.jpg" />
+        android:src="@drawable/autumn_5649620_1280.jpg" />
 
     <!-- Dark overlay for text readability -->
     <View
