@@ -1,29 +1,27 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    // if using google services later: id 'com.google.gms.google-services'  (apply at bottom)
 }
 
 android {
     namespace 'com.emmanuel.weatherapp'
     compileSdk 34
-
     defaultConfig {
         applicationId "com.emmanuel.weatherapp"
         minSdk 24
         targetSdk 34
         versionCode 1
         versionName "1.0"
+        buildConfigField "String", "OPEN_WEATHER_API_KEY", "\"YOUR_API_KEY_HERE\"" // OR use gradle.properties
     }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-        }
+    buildFeatures { viewBinding true }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
-
-    buildFeatures {
-        viewBinding true
-    }
+    kotlinOptions { jvmTarget = "17" }
 }
 
 dependencies {
@@ -32,36 +30,25 @@ dependencies {
     implementation 'com.google.android.material:material:1.12.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
-    // Retrofit + Gson for weather API calls
+    // Retrofit + Gson
     implementation 'com.squareup.retrofit2:retrofit:2.11.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.11.0'
 
     // Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1'
 
-    // Glide for weather icons
+    // Room
+    implementation "androidx.room:room-runtime:2.6.1"
+    kapt "androidx.room:room-compiler:2.6.1"
+    implementation "androidx.room:room-ktx:2.6.1"
+
+    // Glide
     implementation 'com.github.bumptech.glide:glide:4.16.0'
     kapt 'com.github.bumptech.glide:compiler:4.16.0'
-
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
 }
 
 
-// File: build.gradle (Project-level)
+classpath 'com.google.gms:google-services:4.4.0'  // or latest
 
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.5.0'
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.25'
-    }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
+apply plugin: 'com.google.gms.google-services'
+implementation 'com.google.firebase:firebase-analytics-ktx:21.3.0' // example
